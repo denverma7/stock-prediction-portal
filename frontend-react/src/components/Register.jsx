@@ -29,6 +29,12 @@ const Register = () => {
         }catch(error) {
             setErrors(error.response.data);
             console.error('Error registering user:', error.response.data);
+            if (error.response) {
+                setErrors(error.response.data);
+                console.error('Error registering user:', error.response.data);
+            } else {
+                console.error('Network Error:', error.message);
+            }
         }finally{
             setLoading(false);
         }
